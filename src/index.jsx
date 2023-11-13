@@ -15,7 +15,7 @@ import Profile from "./Components/Profile";
 import ProfileClass from "./Components/ProfileClass";
 import Simmer from "./Components/Simmer";
 import './index.css'
-import UserContext from "./utils/UserContext";
+
 // import Instamart from "./Components/Instamart";
 import { Provider } from "react-redux";
 import Store from "./utils/store";
@@ -30,22 +30,20 @@ const Instamart = lazy(()=>import('./Components/Instamart'))
 // lazy loading 
 // on demand loading
 const AppLayout = () => {
-  const [user,setUser]=useState({
-    name:"Aman Rajput",
-    email:"support@aman.com"
-  })
+ 
   return (
     <Provider store={Store}>
-    <UserContext.Provider value={{user:user}}>
+  
       <HeaderComp />
      <Outlet/>
       <Footer />
-    </UserContext.Provider> 
+  
     </Provider>
   );
 };
 
 const approuter = createBrowserRouter([
+
   {
     path:'/',
     element:<AppLayout />,
@@ -84,9 +82,14 @@ const approuter = createBrowserRouter([
       {
         path:'/cart',
         element:<Cart/>
-      }
+      },
+      
     ]
   },
+  {
+    path:'/login',
+    element:<Login/>
+  }
   
  
 ])

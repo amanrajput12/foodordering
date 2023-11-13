@@ -23,7 +23,11 @@ const dispatch = useDispatch()
 
 
         }))
-      toast.success("Item added to cart ")
+      toast.success("Item added to cart ",{
+        position: "bottom-left",
+        autoClose: 1000,
+        pauseOnHover: true,
+      })
     }
  
 return(
@@ -31,13 +35,13 @@ return(
   
     <div className="w-2/3">
     <h2>{menu.name}</h2>
-    <p>{menu.description}</p>
+    <p className="hidden sm:flex">{menu.description}</p>
     <h3>{`₹ 
  ${menu.price/100}`}</h3>
     </div>
     <div className=" flex flex-col p-2 justify-center items-center">
-    <img className="w-40 h-30 mb-3 rounded-lg" src={ITEM_IMG_CDN_URL + menu.imageId} alt="image" />
-    <button onClick={()=>hanldeAddItem(menu)} className="bg-cyan-700 p-2 rounded-lg text-white hover:bg-green-700">Add to Cart</button>
+    <img className="w-20 h-20 sm:w-40 sm:h-40 mb-3 rounded-lg" src={ITEM_IMG_CDN_URL + menu.imageId} alt="image" />
+    <button onClick={()=>hanldeAddItem(menu)} className="bg-cyan-700 p-[2px] rounded-md sm:p-2 sm:rounded-lg text-white hover:bg-green-700">Add to Cart</button>
 </div>
 <ToastContainer/>
     </div>

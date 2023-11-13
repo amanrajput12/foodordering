@@ -3,11 +3,12 @@
 import React, { useState,useEffect,useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
-import UserContext from "../utils/UserContext";
-import logo from '../../food.png'
+
+import logo from '../../public/food app.jpg'
 import {  useSelector } from "react-redux";
 import Store from "../utils/store";
 import {AiOutlineMenuUnfold } from 'react-icons/ai';
+
 
 const Title = () => {
 
@@ -23,8 +24,8 @@ const Title = () => {
  
   const HeaderComp = () =>  {
  const status = useOnline()
-    const [islogin,setIslogin]= useState(false)
-    const {user} = useContext(UserContext)
+    
+   
     const [menu,setmenu] =useState(false)
 
     const cartItems = useSelector(Store =>Store.cart.items)
@@ -35,7 +36,7 @@ const Title = () => {
 const handlemenu =()=>{
   setmenu(!menu)
 }
-   
+
   return(
     
     <div className="flex justify-between items-center ml-2 mr-2 ">
@@ -57,27 +58,33 @@ const handlemenu =()=>{
         <ul className="sm:hidden ">
 <AiOutlineMenuUnfold onClick={handlemenu} className="m-3 text-2xl "/>
        {menu && <li>
-        <li ><Link to='/'>Home</Link></li>
-        <li > <Link to='/about'> About </Link> </li>
-        <li  > <Link to='/contact'> Contact </Link> </li>
+        <li className="bg-sky-600 text-white rounded-sm text-center cursor-pointer" ><Link to='/'>Home</Link></li>
+        <li className="bg-sky-600 text-white rounded-sm text-center cursor-pointer mt-1" > <Link to='/about'> About </Link> </li>
+        <li  className="bg-sky-600 text-white rounded-sm text-center cursor-pointer mt-1" > <Link to='/contact'> Contact </Link> </li>
           
-          <li><Link to='/instamart'>InstaMart</Link></li>
-          <li> <Link to='/cart'> Cart <span>{cartItems.length}</span> </Link> </li>
+          <li className="bg-sky-600 text-white rounded-sm text-center cursor-pointer mt-1"><Link to='/instamart'>InstaMart</Link></li>
+          <li className="bg-sky-600 text-white rounded-sm text-center cursor-pointer mt-1"> <Link to='/cart'> Cart <span>{cartItems.length}</span> </Link> </li>
           </li>
        }
        
 
         </ul>
-      
+       
       </div>
   
   
       {
-        islogin ? <button onClick={()=>setIslogin(false)}>Logout</button>:
-        <button className="bg-lime-600 rounded-md p-2" onClick={()=>setIslogin(true)} >Login</button>
+         
+        <button className="bg-lime-600 rounded-md p-2" >
+          <Link to='/login'>
+          Logout
+          </Link>
+
+          </button>
+
         
       }
-       
+   
     </div>
   )
   }

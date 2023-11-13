@@ -18,12 +18,12 @@ const CartMenu = ({menu}) => {
    
     <div className="w-2/3">
     <h2>{menu.name}</h2>
-    <p>{menu.description}</p>
+    <p className='hidden sm:flex'>{menu.description}</p>
     <h3>{`₹ 
  ${menu.totalPrice/100}`}</h3>
     </div>
     <div className=" flex flex-col p-2 justify-center items-center">
-    <img className="w-40 h-30 mb-3 rounded-lg" src={ITEM_IMG_CDN_URL + menu.image} alt="image" />
+    <img className="w-20 h-20 sm:w-40 sm:h-40 mb-3 rounded-lg" src={ITEM_IMG_CDN_URL + menu.image} alt="image" />
     <div className='flex gap-6'>
     <button  onClick={()=>handleDecrease(menu)} className="bg-slate-400 p-1 rounded-sm text-white hover:bg-gray-600">-</button>
     <span>{menu.quantity}</span>

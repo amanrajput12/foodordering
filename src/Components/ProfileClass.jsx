@@ -8,8 +8,8 @@ class ProfileClass extends React.Component{
         this.state = {
             count:0,
             userInfo:{
-              name:"dummy name",
-              location:"dummy location"
+            
+              
             }
           }
         console.log(' children contrucator',this.props.name);

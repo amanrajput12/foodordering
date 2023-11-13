@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 
-const Profile =(props)=>{
-    const [count] = useState(0)
+const Profile = (props)=>{
+    const [data,setdata]= useState([])
+async function  profileData(){
+    const data = await fetch('https://api.github.com/users/amanrajput12')
+    const json = await data.json()
+    console.log('api data',json);
+    setdata(json)
+}
     useEffect(()=>{
-        // api call
-        // console.log('useeffect');
-      const timer=  setInterval(() => {
-            console.log('namaste react op functional');
-        }, 1000);
-        return ()=>{
-            console.log('useeffect return');
-            clearInterval(timer)
-        }
-    },[count])
+       profileData()
+     
+    },[])
 
-    //  console.log('render of funtion')
+    console.log(data);
     return(
-        <div>
+        <div className="flex flex-col items-center">
             <h2>Profile page </h2>
-            <h3>Count : {count}</h3>
+           <h3>{data.name}</h3>
+           <img className="rounded-full w-1/4" src={data.avatar_url} alt="" />
         </div>
     )
 }

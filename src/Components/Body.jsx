@@ -18,27 +18,7 @@ console.log("usefeect called");
 getRestaurants()
 },[])
 
-// async function getResturents(){
-// try {
-  
-//   const data = await fetch(`${swiggy_api_URL}`,{
-   
-//     Method: "GET"
-  
-    
-//   })
-// const json = await data.json()
-// // setData(json?.data?.cards[2]?.data?.data?.cards)
-// console.log(json.data);
-// console.log(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-// setData(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-// // setResturent(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle.restaurants)
 
-// // console.log('image url',json?.data?.cards[2]?.card.card.gridElements.infoWithStyle.resturents);
-// setLoading(false)
-// } catch (error) {
-//   console.log(error);
-// } }
 
 async function getRestaurants() {
   // handle the error using try... catch
@@ -86,9 +66,9 @@ return <h2>offline please check your internet connection</h2>
 
     return(
       <>    
-      <div className='mb-10 flex  gap-4'>
+      <div className='absolute top-18 left-20  mb-10  sm:relative  gap-4'>
         <input onChange={(e)=>setSearchtext(e.target.value)} type="text" className="search-input" placeholder=" Search for restaurants....." value={searchtext}  / >
-        <button className="p-2 bg-lime-600 rounded-md" onClick={()=>{
+        <button className="p-[2px] sm:p-2 bg-lime-600 rounded-md" onClick={()=>{
           // need to filter the data
           // update the state
          const searchval =  filterData(searchtext,resturent)
