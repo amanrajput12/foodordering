@@ -18,7 +18,7 @@ async function  profileData(){
         <div className="flex flex-col items-center">
             <h2>Profile page </h2>
            <h3>{data.name}</h3>
-           <img className="rounded-full w-1/4" src={data.avatar_url} alt="" />
+           <img className="rounded-full w-1/4" src="https://th.bing.com/th/id/OIP.zrxzA5ujpqbaPQiZMs1uZgHaHW?rs=1&pid=ImgDetMain" alt="" />
         </div>
     )
 }
